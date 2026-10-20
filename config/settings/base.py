@@ -95,6 +95,19 @@ else:
         }
     }
 
+# Tests run on in-memory SQLite regardless of DATABASE_URL. The cloud Postgres role
+# (`authenticator`) has no CREATEDB privilege, so Django's test runner can't create a
+# throwaway test database there. v1 uses no Postgres-only behaviour, so SQLite tests are
+# safe and fast; revisit at B0 if same-engine tests are wanted (local Docker Postgres or a
+# CREATEDB grant). Dev and prod always use the real Postgres via DATABASE_URL.
+import sys  # noqa: E402
+
+if "test" in sys.argv:
+    DATABASES["default"] = {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",
+    }
+
 # Custom user from day one (SD-4/SA-3); empty in Stage A.
 AUTH_USER_MODEL = "core.User"
 
