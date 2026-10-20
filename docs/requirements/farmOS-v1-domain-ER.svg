@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 812" width="1180" height="812" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <marker id="arrowR" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ef4444"/>
+    </marker>
+    <style>
+      .hdr{fill:#fff;font-size:15px;font-weight:600}
+      .fld{fill:#333;font-size:12px}
+      .note{fill:#6b7280;font-size:11px;font-style:italic}
+      .new{fill:#b45309;font-size:12px;font-weight:600}
+      .rel{fill:#555;font-size:11px}
+      .relR{fill:#ef4444;font-size:11px}
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1180" height="812" fill="#ffffff"/>
+  <text x="30" y="34" font-size="23" font-weight="700" fill="#1e1e1e">farmOS v1 — Domain / ER Model</text>
+  <text x="30" y="54" font-size="13" fill="#757575">accrual income · movement-ledger stock · one Entity table · direct-tag + descendant-rollup P&amp;L · in-house vs outsourced (REQ-036)</text>
+
+  <!-- ===== RELATIONSHIP LINES (under boxes) ===== -->
+  <!-- EntityCategory -> Entity -->
+  <path d="M240,233 L300,188" stroke="#555" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="248" y="202">1:N</text>
+  <!-- Entity -> Transaction -->
+  <path d="M400,236 L410,290" stroke="#8b5cf6" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text class="rel" x="412" y="270">entity</text>
+  <!-- Stage -> Transaction -->
+  <path d="M240,312 L290,360" stroke="#f59e0b" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text class="rel" x="244" y="326">stage</text>
+  <!-- Plantation -> Transaction -->
+  <path d="M240,389 L290,398" stroke="#f59e0b" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text class="rel" x="244" y="384">plot</text>
+  <!-- Tag -> Transaction -->
+  <path d="M240,455 L290,430" stroke="#f59e0b" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text class="rel" x="244" y="450">N:M</text>
+  <!-- Item -> Recipe -->
+  <path d="M710,192 L710,214" stroke="#22c55e" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text class="rel" x="716" y="208">outputs N:M</text>
+  <!-- Item -> Harvest (elbow around Recipe) -->
+  <path d="M600,140 L578,140 L578,344 L600,344" stroke="#06b6d4" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="512" y="250">raw matl</text>
+  <!-- Harvest -> Batch -->
+  <path d="M820,320 L880,150" stroke="#15803d" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="828" y="248">creates</text>
+  <!-- Harvest -> StockMovement -->
+  <path d="M820,360 L880,280" stroke="#06b6d4" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="828" y="332">+qty</text>
+  <!-- Procurement -> StockMovement -->
+  <path d="M820,452 L880,312" stroke="#06b6d4" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="828" y="402">+buy qty</text>
+  <!-- Procurement -> Transaction (expense) -->
+  <path d="M600,452 L530,410" stroke="#8b5cf6" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text class="rel" x="536" y="424">expense</text>
+  <!-- ProductionRun -> ProductionLine -->
+  <path d="M820,572 L880,452" stroke="#22c55e" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="826" y="524">1:N</text>
+  <!-- ProductionLine -> StockMovement -->
+  <path d="M985,360 L985,334" stroke="#06b6d4" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="990" y="352">±qty</text>
+  <!-- Contact -> Sale -->
+  <path d="M510,690 L560,702" stroke="#4a9eed" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="518" y="686">1:N</text>
+  <!-- Sale -> Payment -->
+  <path d="M770,700 L840,692" stroke="#4a9eed" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="788" y="686">1:N</text>
+  <!-- Sale -> Transaction (income) -->
+  <path d="M650,640 L430,478" stroke="#22c55e" fill="none" marker-end="url(#arrow)"/>
+  <text class="rel" x="500" y="556">income (accrual)</text>
+  <!-- Sale -> StockMovement (-qty) -->
+  <path d="M770,652 L952,334" stroke="#ef4444" fill="none" stroke-dasharray="5,4" marker-end="url(#arrowR)"/>
+  <text class="relR" x="862" y="498">-qty</text>
+  <!-- Item vendors ..  Contact (dashed, annotation) -->
+  <path d="M600,110 L556,110 L556,676 L510,676" stroke="#9333ea" fill="none" stroke-dasharray="3,5" marker-end="url(#arrow)"/>
+  <text class="rel" x="300" y="112" fill="#7e22ce">Item.vendors N:M -&gt; Contact</text>
+
+  <!-- ===== ENTITY BOXES ===== -->
+
+  <!-- FarmProfile -->
+  <rect x="30" y="72" width="210" height="118" rx="6" fill="#f3effe" stroke="#8b5cf6"/>
+  <rect x="30" y="72" width="210" height="26" rx="6" fill="#8b5cf6"/>
+  <text class="hdr" x="40" y="90">FarmProfile  (single row)</text>
+  <text class="fld" x="40" y="116">name, logo, bio</text>
+  <text class="fld" x="40" y="134">land_size, plots, counts</text>
+  <text class="fld" x="40" y="152">fiscal_year_start_month</text>
+  <text class="note" x="40" y="180">REQ-003 · single-farm</text>
+
+  <!-- EntityCategory -->
+  <rect x="30" y="206" width="210" height="54" rx="6" fill="#f3effe" stroke="#8b5cf6"/>
+  <rect x="30" y="206" width="210" height="26" rx="6" fill="#8b5cf6"/>
+  <text class="hdr" x="40" y="224">EntityCategory</text>
+  <text class="fld" x="40" y="251">name · admin-editable (REQ-004)</text>
+
+  <!-- Stage -->
+  <rect x="30" y="276" width="210" height="72" rx="6" fill="#fff8e8" stroke="#f59e0b"/>
+  <rect x="30" y="276" width="210" height="26" rx="6" fill="#f59e0b"/>
+  <text class="hdr" x="40" y="294">Stage  (lookup)</text>
+  <text class="fld" x="40" y="320">name · admin-editable</text>
+  <text class="note" x="40" y="340">seed: prep-grow-prod-mktg</text>
+
+  <!-- Plantation -->
+  <rect x="30" y="364" width="210" height="50" rx="6" fill="#fff8e8" stroke="#f59e0b"/>
+  <rect x="30" y="364" width="210" height="26" rx="6" fill="#f59e0b"/>
+  <text class="hdr" x="40" y="382">Plantation  (tag)</text>
+  <text class="fld" x="40" y="406">name · REQ-019 (rollup v2)</text>
+
+  <!-- Tag -->
+  <rect x="30" y="430" width="210" height="50" rx="6" fill="#fff8e8" stroke="#f59e0b"/>
+  <rect x="30" y="430" width="210" height="26" rx="6" fill="#f59e0b"/>
+  <text class="hdr" x="40" y="448">Tag</text>
+  <text class="fld" x="40" y="472">name · N:M Transaction/Contact</text>
+
+  <!-- Entity -->
+  <rect x="300" y="140" width="200" height="96" rx="6" fill="#f3effe" stroke="#8b5cf6"/>
+  <rect x="300" y="140" width="200" height="26" rx="6" fill="#8b5cf6"/>
+  <text class="hdr" x="310" y="158">Entity</text>
+  <text class="fld" x="310" y="186">category_fk</text>
+  <text class="fld" x="310" y="204">name, count? , is_active</text>
+  <text class="note" x="310" y="226">REQ-001/002 · incl. employees</text>
+
+  <!-- Transaction -->
+  <rect x="290" y="290" width="240" height="186" rx="6" fill="#fff1dd" stroke="#ea8a0b" stroke-width="2.5"/>
+  <rect x="290" y="290" width="240" height="28" rx="6" fill="#ea8a0b"/>
+  <text class="hdr" x="300" y="310" font-size="16">Transaction  (ledger)</text>
+  <text class="fld" x="300" y="338">direction: income | expense</text>
+  <text class="fld" x="300" y="356">amount: Decimal (positive)</text>
+  <text class="fld" x="300" y="374">txn_date (sep. from created_at)</text>
+  <text class="fld" x="300" y="392">is_overhead (REQ-031)</text>
+  <text class="fld" x="300" y="410">FK: entity, batch, item,</text>
+  <text class="fld" x="300" y="428">contact, stage, plantation</text>
+  <text class="fld" x="300" y="446">tags N:M</text>
+  <text class="note" x="300" y="466">rich attribution — REQ-017</text>
+
+  <!-- Item -->
+  <rect x="600" y="72" width="220" height="120" rx="6" fill="#eafcef" stroke="#22c55e"/>
+  <rect x="600" y="72" width="220" height="26" rx="6" fill="#22c55e"/>
+  <text class="hdr" x="610" y="90">Item  (raw + finished)</text>
+  <text class="fld" x="610" y="116">name, unit (own)</text>
+  <text class="fld" x="610" y="134">sale_price? (admin-edit)</text>
+  <text class="new" x="610" y="152">vendors: N:M Contact</text>
+  <text class="note" x="610" y="182">REQ-006/032/036 · one product list</text>
+
+  <!-- Recipe -->
+  <rect x="600" y="214" width="220" height="60" rx="6" fill="#eafcef" stroke="#22c55e"/>
+  <rect x="600" y="214" width="220" height="26" rx="6" fill="#22c55e"/>
+  <text class="hdr" x="610" y="232">Recipe</text>
+  <text class="fld" x="610" y="260">input_item -&gt; output_items · N:M</text>
+
+  <!-- Harvest -->
+  <rect x="600" y="296" width="220" height="96" rx="6" fill="#e6fbff" stroke="#06b6d4"/>
+  <rect x="600" y="296" width="220" height="26" rx="6" fill="#06b6d4"/>
+  <text class="hdr" x="610" y="314">Harvest  (event)</text>
+  <text class="fld" x="610" y="340">date · source: entity/plantation</text>
+  <text class="fld" x="610" y="358">item (raw), quantity + unit</text>
+  <text class="note" x="610" y="382">REQ-034 · opens in_house Batch</text>
+
+  <!-- Procurement (NEW REQ-036) -->
+  <rect x="600" y="414" width="220" height="104" rx="6" fill="#e6fbff" stroke="#b45309" stroke-width="2.5"/>
+  <rect x="600" y="414" width="220" height="26" rx="6" fill="#b45309"/>
+  <text class="hdr" x="610" y="432">Procurement  (NEW)</text>
+  <text class="fld" x="610" y="458">date · vendor (Contact)</text>
+  <text class="fld" x="610" y="476">item, quantity + unit</text>
+  <text class="fld" x="610" y="494">-&gt; outsourced Batch</text>
+  <text class="note" x="610" y="512">REQ-036 · buy-in: +stock + expense</text>
+
+  <!-- ProductionRun -->
+  <rect x="600" y="540" width="220" height="70" rx="6" fill="#eafcef" stroke="#22c55e"/>
+  <rect x="600" y="540" width="220" height="26" rx="6" fill="#22c55e"/>
+  <text class="hdr" x="610" y="558">ProductionRun</text>
+  <text class="fld" x="610" y="586">date, note</text>
+  <text class="note" x="610" y="604">REQ-007/008 · tally in/out · repack</text>
+
+  <!-- Batch -->
+  <rect x="880" y="72" width="210" height="120" rx="6" fill="#eafcef" stroke="#15803d"/>
+  <rect x="880" y="72" width="210" height="26" rx="6" fill="#15803d"/>
+  <text class="hdr" x="890" y="90">Batch</text>
+  <text class="fld" x="890" y="116">number (user, unique)</text>
+  <text class="new" x="890" y="134">origin: in_house | outsourced</text>
+  <text class="fld" x="890" y="152">lineage (via prod. lines)</text>
+  <text class="note" x="890" y="182">REQ-010/036 · P&amp;L + child rollup</text>
+
+  <!-- StockMovement -->
+  <rect x="880" y="214" width="210" height="120" rx="6" fill="#e6fbff" stroke="#06b6d4" stroke-width="2.5"/>
+  <rect x="880" y="214" width="210" height="26" rx="6" fill="#06b6d4"/>
+  <text class="hdr" x="890" y="232">StockMovement  (truth)</text>
+  <text class="fld" x="890" y="258">item_fk, batch_fk</text>
+  <text class="fld" x="890" y="276">quantity: ± Decimal</text>
+  <text class="fld" x="890" y="294">reason: harvest/prod/sale/</text>
+  <text class="new" x="890" y="312">   purchase/adjustment</text>
+  <text class="note" x="890" y="330">stock = sum · neg. allowed · OD-3</text>
+
+  <!-- ProductionLine -->
+  <rect x="880" y="360" width="210" height="100" rx="6" fill="#eafcef" stroke="#22c55e"/>
+  <rect x="880" y="360" width="210" height="26" rx="6" fill="#22c55e"/>
+  <text class="hdr" x="890" y="378">ProductionLine</text>
+  <text class="fld" x="890" y="404">run_fk, io: in | out</text>
+  <text class="fld" x="890" y="422">item_fk, batch_fk, quantity</text>
+  <text class="note" x="890" y="442">many inputs -&gt; one output ok</text>
+
+  <!-- Contact -->
+  <rect x="300" y="640" width="210" height="100" rx="6" fill="#eaf4fe" stroke="#4a9eed"/>
+  <rect x="300" y="640" width="210" height="26" rx="6" fill="#4a9eed"/>
+  <text class="hdr" x="310" y="658">Contact</text>
+  <text class="fld" x="310" y="686">name, type, tags</text>
+  <text class="fld" x="310" y="704">cust / visitor / vendor</text>
+  <text class="note" x="310" y="726">REQ-014/033 · history computed</text>
+
+  <!-- Sale -->
+  <rect x="560" y="640" width="210" height="120" rx="6" fill="#eaf4fe" stroke="#4a9eed"/>
+  <rect x="560" y="640" width="210" height="26" rx="6" fill="#4a9eed"/>
+  <text class="hdr" x="570" y="658">Sale  (quick)</text>
+  <text class="fld" x="570" y="686">contact_fk, batch_fk, item_fk</text>
+  <text class="fld" x="570" y="704">quantity</text>
+  <text class="fld" x="570" y="722">price_snapshot (copied)</text>
+  <text class="note" x="570" y="748">REQ-011 · atomic: stock + income</text>
+
+  <!-- Payment -->
+  <rect x="840" y="640" width="210" height="100" rx="6" fill="#eaf4fe" stroke="#4a9eed"/>
+  <rect x="840" y="640" width="210" height="26" rx="6" fill="#4a9eed"/>
+  <text class="hdr" x="850" y="658">Payment</text>
+  <text class="fld" x="850" y="686">sale_fk, amount, date</text>
+  <text class="fld" x="850" y="704">paid / part / credit</text>
+  <text class="note" x="850" y="726">REQ-013 · outstanding computed</text>
+
+  <!-- Legend -->
+  <rect x="30" y="762" width="1120" height="42" rx="6" fill="#fafafa" stroke="#e5e7eb"/>
+  <rect x="42" y="774" width="20" height="12" fill="#8b5cf6"/><text class="fld" x="68" y="784">Identity/entities</text>
+  <rect x="188" y="774" width="20" height="12" fill="#f59e0b"/><text class="fld" x="214" y="784">Lookups</text>
+  <rect x="290" y="774" width="20" height="12" fill="#ea8a0b"/><text class="fld" x="316" y="784">Money ledger</text>
+  <rect x="424" y="774" width="20" height="12" fill="#22c55e"/><text class="fld" x="450" y="784">Items/production</text>
+  <rect x="580" y="774" width="20" height="12" fill="#06b6d4"/><text class="fld" x="606" y="784">Inventory</text>
+  <rect x="690" y="774" width="20" height="12" fill="#4a9eed"/><text class="fld" x="716" y="784">Sales/contacts</text>
+  <rect x="820" y="774" width="20" height="12" fill="#b45309"/><text class="fld" x="846" y="784">REQ-036 (outsourced)</text>
+  <line x1="1012" y1="780" x2="1046" y2="780" stroke="#555" stroke-dasharray="5,4"/><text class="fld" x="1052" y="784">attribution</text>
+</svg>

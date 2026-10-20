@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="1200" height="660" fill="#ffffff"/>
+  <text x="600" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">farmOS v1 — Key Screen Wireframes</text>
+
+  <!-- ===== WF1: Quick Sale ===== -->
+  <rect x="60" y="70" width="300" height="500" rx="8" fill="#ffffff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="82" y="106" font-size="20" font-weight="bold" fill="#2563eb">Quick Sale  (+Sell)</text>
+
+  <rect x="82" y="122" width="256" height="38" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="94" y="146" font-size="16" fill="#1e1e1e">Item:  Coconut oil</text>
+  <rect x="82" y="168" width="256" height="38" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="94" y="192" font-size="16" fill="#1e1e1e">Batch:  OIL-261016  (50 L)</text>
+  <rect x="82" y="214" width="256" height="38" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="94" y="238" font-size="16" fill="#1e1e1e">Qty:  10 L</text>
+  <rect x="82" y="260" width="256" height="38" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="94" y="284" font-size="16" fill="#1e1e1e">Price:  45/L  (auto, edit)</text>
+  <rect x="82" y="306" width="256" height="38" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="94" y="330" font-size="16" fill="#1e1e1e">Contact:  Ravi</text>
+
+  <text x="82" y="374" font-size="16" fill="#1e1e1e">Payment:</text>
+  <rect x="158" y="356" width="58" height="30" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="187" y="376" text-anchor="middle" font-size="14" fill="#1e1e1e">Paid</text>
+  <rect x="222" y="356" width="66" height="30" rx="6" fill="#b2f2bb" stroke="#22c55e"/>
+  <text x="255" y="376" text-anchor="middle" font-size="14" fill="#1e1e1e">Partial</text>
+  <rect x="294" y="356" width="44" height="30" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="316" y="376" text-anchor="middle" font-size="14" fill="#1e1e1e">Cred</text>
+
+  <rect x="82" y="398" width="256" height="34" rx="6" fill="#fff3bf" stroke="#f59e0b"/>
+  <text x="94" y="420" font-size="15" fill="#1e1e1e">Received 200    Outstanding 250</text>
+
+  <rect x="82" y="446" width="256" height="44" rx="6" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="210" y="474" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Record sale</text>
+  <text x="82" y="516" font-size="14" fill="#757575">→ confirm → Add another / Done</text>
+
+  <!-- ===== WF2: Run Production ===== -->
+  <rect x="420" y="70" width="430" height="560" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="442" y="106" font-size="20" font-weight="bold" fill="#7c3aed">Run Production  (+Produce)</text>
+
+  <text x="442" y="140" font-size="16" font-weight="bold" fill="#1e1e1e">INPUTS  (consume)</text>
+  <rect x="442" y="150" width="386" height="36" rx="6" fill="#ffd8a8" stroke="#f59e0b"/>
+  <text x="454" y="173" font-size="15" fill="#1e1e1e">Coconut   B:COCO-261016   500 nut   [x]</text>
+  <rect x="442" y="192" width="160" height="32" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="454" y="213" font-size="15" fill="#1e1e1e">+ add input</text>
+
+  <text x="442" y="252" font-size="16" font-weight="bold" fill="#1e1e1e">OUTPUTS  (produce)</text>
+  <rect x="442" y="262" width="386" height="36" rx="6" fill="#b2f2bb" stroke="#22c55e"/>
+  <text x="454" y="285" font-size="15" fill="#1e1e1e">Oil    B:OIL-261016    50 L    [x]</text>
+  <rect x="442" y="304" width="386" height="36" rx="6" fill="#b2f2bb" stroke="#22c55e"/>
+  <text x="454" y="327" font-size="15" fill="#1e1e1e">Husk   B:HSK-261016   480 pc   [x]</text>
+  <rect x="442" y="346" width="170" height="32" rx="6" fill="#e9ecef" stroke="#adb5bd"/>
+  <text x="454" y="367" font-size="15" fill="#1e1e1e">+ add output</text>
+
+  <rect x="442" y="396" width="386" height="46" rx="6" fill="#fff3bf" stroke="#f59e0b"/>
+  <text x="635" y="424" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e1e1e">TALLY:  in 500 nut  →  out 50 L + 480 pc</text>
+
+  <rect x="442" y="460" width="386" height="44" rx="6" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="635" y="488" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Run production  (atomic)</text>
+  <text x="442" y="530" font-size="14" fill="#757575">output batches link lineage → per-batch P&amp;L rollup</text>
+
+  <!-- ===== WF3: /m/ Home ===== -->
+  <rect x="910" y="70" width="250" height="480" rx="8" fill="#ffffff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="932" y="106" font-size="20" font-weight="bold" fill="#2563eb">/m/  Home  (phone)</text>
+
+  <rect x="932" y="122" width="206" height="40" rx="6" fill="#a5d8ff" stroke="#4a9eed"/>
+  <text x="1035" y="147" text-anchor="middle" font-size="17" fill="#1e1e1e">+ Sell</text>
+  <rect x="932" y="170" width="206" height="40" rx="6" fill="#a5d8ff" stroke="#4a9eed"/>
+  <text x="1035" y="195" text-anchor="middle" font-size="17" fill="#1e1e1e">+ Expense / Income</text>
+  <rect x="932" y="218" width="206" height="40" rx="6" fill="#a5d8ff" stroke="#4a9eed"/>
+  <text x="1035" y="243" text-anchor="middle" font-size="17" fill="#1e1e1e">+ Contact</text>
+  <rect x="932" y="266" width="206" height="40" rx="6" fill="#a5d8ff" stroke="#4a9eed"/>
+  <text x="1035" y="291" text-anchor="middle" font-size="17" fill="#1e1e1e">Collect pay</text>
+
+  <text x="932" y="338" font-size="16" font-weight="bold" fill="#1e1e1e">TODAY</text>
+  <rect x="932" y="348" width="206" height="120" rx="6" fill="#c3fae8" stroke="#06b6d4"/>
+  <text x="948" y="384" font-size="16" fill="#1e1e1e">P&amp;L</text>
+  <text x="1122" y="384" text-anchor="end" font-size="16" fill="#1e1e1e">___</text>
+  <text x="948" y="414" font-size="16" fill="#1e1e1e">Turnover</text>
+  <text x="1122" y="414" text-anchor="end" font-size="16" fill="#1e1e1e">___</text>
+  <text x="948" y="444" font-size="16" fill="#1e1e1e">Outstanding</text>
+  <text x="1122" y="444" text-anchor="end" font-size="16" fill="#1e1e1e">___</text>
+  <text x="932" y="506" font-size="14" fill="#757575">curated subset; full access on /</text>
+</svg>

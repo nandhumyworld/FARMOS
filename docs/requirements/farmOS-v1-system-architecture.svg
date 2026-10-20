@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 632" width="1180" height="632" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <marker id="arg" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#22a34a"/>
+    </marker>
+    <style>
+      .ttl{font-size:16px;font-weight:600}
+      .bx{font-size:14px}
+      .sm{font-size:12px}
+      .zl{font-size:13px;font-weight:600}
+      .rel{fill:#555;font-size:12px}
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1180" height="640" fill="#ffffff"/>
+  <text x="40" y="34" font-size="22" font-weight="700" fill="#1e1e1e">farmOS v1 — System Architecture</text>
+  <text x="40" y="54" font-size="13" fill="#757575">Django on Coolify · server-rendered + HTMX · service layer keeps stock + ledger atomic</text>
+
+  <!-- CLIENTS ZONE -->
+  <rect x="40" y="72" width="560" height="104" rx="8" fill="#dbe4ff" stroke="#4a9eed" opacity="0.45"/>
+  <text class="zl" x="54" y="92" fill="#2563eb">Clients (browser)</text>
+  <g>
+    <rect x="60" y="102" width="150" height="62" rx="6" fill="#a5d8ff" stroke="#4a9eed"/>
+    <text class="bx" x="135" y="128" text-anchor="middle" fill="#1e3a5f">Admin</text>
+    <text class="sm" x="135" y="146" text-anchor="middle" fill="#345">laptop (full app)</text>
+  </g>
+  <g>
+    <rect x="230" y="102" width="160" height="62" rx="6" fill="#a5d8ff" stroke="#4a9eed"/>
+    <text class="bx" x="310" y="128" text-anchor="middle" fill="#1e3a5f">Owner / Family</text>
+    <text class="sm" x="310" y="146" text-anchor="middle" fill="#345">phone (web)</text>
+  </g>
+  <g>
+    <rect x="410" y="102" width="170" height="62" rx="6" fill="#eaf4fe" stroke="#4a9eed" stroke-dasharray="5,4"/>
+    <text class="bx" x="495" y="128" text-anchor="middle" fill="#1e3a5f">APK  (v2)</text>
+    <text class="sm" x="495" y="146" text-anchor="middle" fill="#345">Capacitor -&gt; /m/ subset</text>
+  </g>
+
+  <!-- arrow clients -> proxy -->
+  <path d="M300,176 L300,206" stroke="#555" fill="none" marker-end="url(#ar)"/>
+  <text class="rel" x="306" y="196">HTTPS</text>
+
+  <!-- PROXY -->
+  <rect x="110" y="208" width="430" height="46" rx="8" fill="#ffd8a8" stroke="#f59e0b"/>
+  <text class="bx" x="325" y="236" text-anchor="middle" fill="#7a4a06">Coolify reverse proxy — TLS (Let's Encrypt), domain</text>
+  <path d="M325,254 L325,286" stroke="#555" fill="none" marker-end="url(#ar)"/>
+
+  <!-- APP CONTAINER ZONE -->
+  <rect x="40" y="288" width="620" height="326" rx="8" fill="#e5dbff" stroke="#8b5cf6" opacity="0.9" fill-opacity="0.35"/>
+  <text class="zl" x="54" y="308" fill="#6d28d9">App container — Django (Dockerfile · gunicorn + WhiteNoise · Tailwind build stage)</text>
+
+  <rect x="60" y="320" width="580" height="50" rx="6" fill="#d0bfff" stroke="#8b5cf6"/>
+  <text class="bx" x="350" y="350" text-anchor="middle" fill="#4c1d95">URL routes:   /   ·   /m/ (family subset)   ·   /admin/   ·   /api/ (reserved)</text>
+
+  <path d="M250,370 L220,392" stroke="#555" fill="none" marker-end="url(#ar)"/>
+  <path d="M450,370 L480,392" stroke="#555" fill="none" marker-end="url(#ar)"/>
+
+  <g>
+    <rect x="70" y="394" width="260" height="64" rx="6" fill="#d0bfff" stroke="#8b5cf6"/>
+    <text class="bx" x="200" y="420" text-anchor="middle" fill="#4c1d95">Views (thin)</text>
+    <text class="sm" x="200" y="440" text-anchor="middle" fill="#4c1d95">HTMX partials · auth / role checks</text>
+  </g>
+  <g>
+    <rect x="370" y="394" width="270" height="64" rx="6" fill="#d0bfff" stroke="#8b5cf6"/>
+    <text class="bx" x="505" y="420" text-anchor="middle" fill="#4c1d95">Django admin</text>
+    <text class="sm" x="505" y="440" text-anchor="middle" fill="#4c1d95">lookups · catalog · prices · users</text>
+  </g>
+
+  <path d="M190,458 L205,500" stroke="#15803d" fill="none" marker-end="url(#arg)"/>
+  <text class="rel" x="120" y="484" fill="#15803d">all writes</text>
+  <path d="M505,458 L470,500" stroke="#8b5cf6" fill="none" stroke-dasharray="5,4" marker-end="url(#ar)"/>
+  <text class="rel" x="512" y="484" fill="#6d28d9">lookups only</text>
+
+  <!-- SERVICE LAYER -->
+  <rect x="70" y="502" width="570" height="74" rx="6" fill="#b2f2bb" stroke="#15803d" stroke-width="2.5"/>
+  <text class="ttl" x="355" y="528" text-anchor="middle" fill="#14532d">SERVICE LAYER  (transaction.atomic)</text>
+  <text class="sm" x="355" y="552" text-anchor="middle" fill="#14532d">record_sale · record_harvest · run_production · procure · corrections (edit-in-place)</text>
+  <text class="sm" x="355" y="568" text-anchor="middle" fill="#14532d">the one place stock + ledger stay consistent · audited (django-auditlog, no bulk writes)</text>
+
+  <!-- DATA -->
+  <rect x="700" y="500" width="250" height="84" rx="8" fill="#c3fae8" stroke="#06b6d4" stroke-width="2"/>
+  <text class="bx" x="825" y="532" text-anchor="middle" fill="#0e5968">PostgreSQL</text>
+  <text class="sm" x="825" y="552" text-anchor="middle" fill="#0e5968">Coolify-bundled · own db + user</text>
+  <text class="sm" x="825" y="570" text-anchor="middle" fill="#0e5968">18 tables (Phase 3b)</text>
+  <path d="M640,538 L700,538" stroke="#06b6d4" fill="none" marker-end="url(#ar)"/>
+  <text class="rel" x="652" y="530" fill="#0e7490">ORM</text>
+
+  <rect x="700" y="400" width="250" height="66" rx="8" fill="#c3fae8" stroke="#06b6d4"/>
+  <text class="bx" x="825" y="428" text-anchor="middle" fill="#0e5968">Media volume</text>
+  <text class="sm" x="825" y="448" text-anchor="middle" fill="#0e5968">logo uploads · persistent · backed up</text>
+  <path d="M640,430 L700,430" stroke="#06b6d4" fill="none" marker-end="url(#ar)"/>
+  <text class="sm" x="700" y="598" fill="#0e7490">Backups: PG dump + media volume -&gt; owner storage (no paid service).</text>
+  <text class="sm" x="700" y="616" fill="#0e7490">Logs -&gt; stdout (Coolify) · /healthz probe · migrations run at deploy.</text>
+
+  <!-- FUTURE ZONE -->
+  <rect x="700" y="72" width="440" height="300" rx="8" fill="#d3f9d8" stroke="#22c55e" opacity="0.9" fill-opacity="0.3"/>
+  <text class="zl" x="714" y="92" fill="#15803d">Future (REQ-028) — reserved seams, NOT built in v1</text>
+  <rect x="720" y="104" width="400" height="54" rx="6" fill="#eafcef" stroke="#22c55e" stroke-dasharray="6,4"/>
+  <text class="bx" x="920" y="136" text-anchor="middle" fill="#14532d">/api/v1/  (DRF · token auth)</text>
+  <rect x="720" y="172" width="400" height="54" rx="6" fill="#eafcef" stroke="#22c55e" stroke-dasharray="6,4"/>
+  <text class="bx" x="920" y="204" text-anchor="middle" fill="#14532d">Telegram / n8n bot</text>
+  <rect x="720" y="240" width="400" height="54" rx="6" fill="#eafcef" stroke="#22c55e" stroke-dasharray="6,4"/>
+  <text class="bx" x="920" y="272" text-anchor="middle" fill="#14532d">Public website + CMS feed</text>
+  <text class="sm" x="720" y="322" fill="#15803d">all of these call the SAME service-layer functions — extension, not rewrite</text>
+  <!-- future -> service -->
+  <path d="M720,320 L680,320 L680,539 L640,539" stroke="#22a34a" fill="none" stroke-dasharray="6,4" marker-end="url(#arg)"/>
+  <text class="rel" x="648" y="360" fill="#15803d">same services</text>
+</svg>

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <rect x="0" y="0" width="1000" height="720" fill="#f8fafc"/>
+  <text x="40" y="40" font-size="24" font-weight="700" fill="#1e293b">farmOS v1 — Design System Specimen</text>
+  <text x="40" y="62" font-size="14" fill="#64748b">Plain &amp; System · Tailwind defaults · system font · tabular figures · Indian grouping, (parentheses)=negative</text>
+
+  <!-- ===== Color tokens ===== -->
+  <text x="40" y="100" font-size="16" font-weight="700" fill="#1e293b">Color tokens</text>
+  <!-- row 1 -->
+  <rect x="40"  y="114" width="90" height="48" rx="6" fill="#2563eb"/>
+  <text x="40"  y="178" font-size="12" fill="#334155">brand / blue-600</text>
+  <text x="40"  y="192" font-size="11" fill="#64748b">#2563eb · interactive</text>
+  <rect x="150" y="114" width="90" height="48" rx="6" fill="#16a34a"/>
+  <text x="150" y="178" font-size="12" fill="#334155">income / green-600</text>
+  <text x="150" y="192" font-size="11" fill="#64748b">#16a34a · +money</text>
+  <rect x="260" y="114" width="90" height="48" rx="6" fill="#dc2626"/>
+  <text x="260" y="178" font-size="12" fill="#334155">expense / red-600</text>
+  <text x="260" y="192" font-size="11" fill="#64748b">#dc2626 · −money · short</text>
+  <rect x="370" y="114" width="90" height="48" rx="6" fill="#f59e0b"/>
+  <text x="370" y="178" font-size="12" fill="#334155">outstanding / amber-500</text>
+  <text x="370" y="192" font-size="11" fill="#64748b">#f59e0b · fill+dark text</text>
+  <!-- row 2 -->
+  <rect x="40"  y="214" width="90" height="48" rx="6" fill="#1e293b"/>
+  <text x="40"  y="278" font-size="12" fill="#334155">ink / slate-800</text>
+  <text x="40"  y="292" font-size="11" fill="#64748b">#1e293b · text</text>
+  <rect x="150" y="214" width="90" height="48" rx="6" fill="#64748b"/>
+  <text x="150" y="278" font-size="12" fill="#334155">muted / slate-500</text>
+  <text x="150" y="292" font-size="11" fill="#64748b">#64748b · meta</text>
+  <rect x="260" y="214" width="90" height="48" rx="6" fill="#e2e8f0"/>
+  <text x="260" y="278" font-size="12" fill="#334155">line / slate-200</text>
+  <text x="260" y="292" font-size="11" fill="#64748b">#e2e8f0 · borders</text>
+  <rect x="370" y="214" width="90" height="48" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="370" y="278" font-size="12" fill="#334155">bg / slate-50</text>
+  <text x="370" y="292" font-size="11" fill="#64748b">#f8fafc · app bg</text>
+
+  <!-- ===== Type scale ===== -->
+  <text x="40" y="340" font-size="16" font-weight="700" fill="#1e293b">Type scale (system sans)</text>
+  <text x="40" y="384" font-size="38" font-weight="700" fill="#16a34a">₹1,24,500</text>
+  <text x="320" y="384" font-size="12" fill="#64748b">P&amp;L figure · text-4xl · tabular</text>
+  <text x="40" y="420" font-size="24" font-weight="700" fill="#1e293b">Section heading</text>
+  <text x="320" y="420" font-size="12" fill="#64748b">text-2xl / 600</text>
+  <text x="40" y="448" font-size="16" fill="#1e293b">Body &amp; inputs — 16px</text>
+  <text x="320" y="448" font-size="12" fill="#64748b">text-base / 400</text>
+  <text x="40" y="472" font-size="14" fill="#334155">Table cells &amp; meta — 14px</text>
+  <text x="320" y="472" font-size="12" fill="#64748b">text-sm</text>
+  <text x="40" y="494" font-size="12" fill="#64748b">Secondary labels — 12px</text>
+
+  <!-- ===== Components ===== -->
+  <text x="520" y="100" font-size="16" font-weight="700" fill="#1e293b">Components</text>
+
+  <!-- KPI tiles -->
+  <rect x="520" y="114" width="200" height="84" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="536" y="138" font-size="13" fill="#64748b">Net P&amp;L — this month</text>
+  <text x="536" y="176" font-size="30" font-weight="700" fill="#16a34a">₹1,24,500</text>
+  <rect x="740" y="114" width="200" height="84" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="756" y="138" font-size="13" fill="#64748b">Outstanding</text>
+  <text x="756" y="176" font-size="30" font-weight="700" fill="#1e293b">₹12,000</text>
+
+  <!-- buttons -->
+  <rect x="520" y="214" width="150" height="44" rx="6" fill="#2563eb"/>
+  <text x="595" y="241" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">Record sale</text>
+  <rect x="686" y="214" width="110" height="44" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="741" y="241" font-size="16" font-weight="600" fill="#334155" text-anchor="middle">Cancel</text>
+
+  <!-- badges -->
+  <text x="520" y="292" font-size="13" fill="#64748b">Badges (always worded):</text>
+  <rect x="520" y="300" width="56" height="24" rx="12" fill="#dcfce7"/>
+  <text x="548" y="317" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle">Paid</text>
+  <rect x="584" y="300" width="66" height="24" rx="12" fill="#fde68a"/>
+  <text x="617" y="317" font-size="12" font-weight="600" fill="#78350f" text-anchor="middle">Partial</text>
+  <rect x="658" y="300" width="62" height="24" rx="12" fill="#fee2e2"/>
+  <text x="689" y="317" font-size="12" font-weight="600" fill="#b91c1c" text-anchor="middle">Credit</text>
+  <rect x="728" y="300" width="78" height="24" rx="12" fill="#f1f5f9"/>
+  <text x="767" y="317" font-size="12" font-weight="600" fill="#334155" text-anchor="middle">In-house</text>
+  <rect x="814" y="300" width="92" height="24" rx="12" fill="#e0f2fe"/>
+  <text x="860" y="317" font-size="12" font-weight="600" fill="#0369a1" text-anchor="middle">Outsourced</text>
+  <rect x="520" y="332" width="118" height="24" rx="12" fill="#fee2e2"/>
+  <text x="579" y="349" font-size="12" font-weight="600" fill="#b91c1c" text-anchor="middle">Short 120 nut</text>
+
+  <!-- ===== Ruled table ===== -->
+  <text x="40" y="540" font-size="16" font-weight="700" fill="#1e293b">Ledger table (laptop) — right-aligned tabular amounts</text>
+  <rect x="40" y="552" width="920" height="132" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <!-- header -->
+  <rect x="41" y="553" width="918" height="30" rx="5" fill="#f1f5f9"/>
+  <text x="56"  y="573" font-size="13" font-weight="600" fill="#334155">Date</text>
+  <text x="150" y="573" font-size="13" font-weight="600" fill="#334155">Item</text>
+  <text x="420" y="573" font-size="13" font-weight="600" fill="#334155">Qty</text>
+  <text x="940" y="573" font-size="13" font-weight="600" fill="#334155" text-anchor="end">Amount</text>
+  <!-- rows -->
+  <text x="56"  y="604" font-size="14" fill="#334155">16 Oct</text>
+  <text x="150" y="604" font-size="14" fill="#334155">Coconut oil</text>
+  <text x="420" y="604" font-size="14" fill="#334155">10 L</text>
+  <text x="940" y="604" font-size="14" fill="#16a34a" text-anchor="end">₹ 1,450.00</text>
+  <line x1="41" y1="616" x2="959" y2="616" stroke="#e2e8f0"/>
+  <text x="56"  y="636" font-size="14" fill="#334155">16 Oct</text>
+  <text x="150" y="636" font-size="14" fill="#334155">Feed (cows)</text>
+  <text x="420" y="636" font-size="14" fill="#64748b">—</text>
+  <text x="940" y="636" font-size="14" fill="#dc2626" text-anchor="end">(₹ 2,000.00)</text>
+  <line x1="41" y1="648" x2="959" y2="648" stroke="#e2e8f0"/>
+  <text x="56"  y="668" font-size="14" font-weight="700" fill="#1e293b">Net</text>
+  <text x="940" y="668" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">(₹ 550.00)</text>
+</svg>

@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Scan Django templates and Python/HTML in the app for class names.
+   Paths are relative to this file (static/src/). */
+@source "../../templates";
+@source "../../core";
+
+/* farmOS design-system tokens (blue-600 primary, money/status colors, type scale)
+   are defined with Tailwind v4 CSS-first config (@theme) in Stage A, Slice A1
+   (DESIGN-v1 DS-2..DS-6). This file is compiled by the Tailwind standalone CLI
+   (v4, SA-5, no Node) to static/css/app.css. */

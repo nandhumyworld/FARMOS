@@ -1,0 +1,10 @@
+# farmOS v1 — runtime dependencies (SD-1/SD-2/SD-4/SD-5)
+Django>=5.2,<5.3            # SD-1: Django 5.2 LTS line
+dj-database-url>=2.2         # parse DATABASE_URL (cloud Postgres / sqlite fallback)
+psycopg[binary]>=3.2         # PostgreSQL driver (SD-5 cloud/bundled Postgres)
+django-htmx>=1.19            # SD-2: HTMX request helpers
+django-auditlog>=3.0         # SD-4/SA-6: change history (wired in Slice B0)
+whitenoise>=6.7              # SD-5: static serving
+gunicorn>=23.0               # SD-5: WSGI server (prod)
+pytailwindcss>=0.2           # SA-5: Tailwind standalone CLI, no Node runtime
+python-dotenv>=1.0           # load .env (dev)

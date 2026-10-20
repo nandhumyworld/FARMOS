@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}farmOS — setup complete{% endblock %}
+{% block content %}
+  <div class="rounded-md border border-slate-200 bg-white p-6">
+    <h1 class="text-2xl font-semibold text-slate-800">farmOS skeleton is running</h1>
+    <p class="mt-2 text-slate-600">
+      Phase 5b scaffold complete. The real action-first Dashboard is built in
+      Stage&nbsp;A, Slice&nbsp;A3. Next: <code class="rounded bg-slate-100 px-1">/build-next</code>
+      builds Slice&nbsp;A1 (design system &amp; app shell).
+    </p>
+    <p class="mt-4 text-sm text-slate-500">
+      Health check: <a class="text-blue-600 underline" href="/healthz">/healthz</a>
+    </p>
+  </div>
+{% endblock %}

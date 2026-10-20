@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Django
+*.sqlite3
+/staticfiles/
+/media/
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# Tailwind build output (regenerated from input.css)
+/static/css/app.css
+
+# Tooling / editor
+.playwright-mcp/
+.idea/
+.vscode/
+*.log
